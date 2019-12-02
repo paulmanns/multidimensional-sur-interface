@@ -1,0 +1,5 @@
+*.png
+__pycache__
+build/*
+*.so
+out/permutation_stats.txt

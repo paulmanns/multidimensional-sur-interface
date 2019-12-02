@@ -96,14 +96,14 @@ for hc_iter in range(1, hc_max_iter+1):
             alpha_funs, omega_funs, phi_funs = hc.compute_sur_permutation(lo_alpha_funs, hc_iter, hc_max_iter, True)
         y = Function(LG)
         solve(A_weak_form == omega_funs[0] * v * dx, y, bc)
-        lo_omega_sur += [omega_funs[0]]
         if i == 0:
             lo_y_sur += [y]
+            lo_omega_sur += [omega_funs[0]]
         mo_norm[hc_iter - 1, i] = norm(project(y_alpha - y, LG), 'L2')
 
 np.savetxt('./out/permutation_stats.txt', mo_norm, delimiter=' ')
 
-print("Norm differences for Hilbert curve orderings")
+print("State error for Hilbert curve orderings over the iterations.")
 for i in range(len(lo_y_sur)):
     print('%2d L2 ' % i, norm(project(y_alpha - lo_y_sur[i], LG), 'L2'))
     print('%2d H1 ' % i, norm(project(y_alpha - lo_y_sur[i], LG), 'H1'))
@@ -120,17 +120,16 @@ for i in range(hc_max_iter):
 if PLOT_CONTROL_CONV:
     for i in range(hc_max_iter):
         print('Plotting control, iter %d ...' % (1 + i))
-        plt.figure(1)
         plot(lo_omega_sur[i], title=r'$v(\omega^{(%d)})$' % (i + 1), vmin=0.0, vmax=1.0, cmap=cm.binary)
         plt.gca().set_xticklabels([])
         plt.gca().set_yticklabels([])
+        plt.show()
         plt.savefig('./out/ctrl_%d_%d_sur.png' % (hc_max_iter, 1 + i),
                     dpi=300, bbox_inches="tight", pad_inches=0)
 
 if PLOT_STATE_CONV:
     for i in range(hc_max_iter):
         print('Plotting state, iter %d ...' % (1 + i))
-        plt.figure(1)
         plot(lo_y_sur[i], title=r'$y(\omega^{(%d)})$' % (1 + i), vmin=vmin, vmax=vmax, cmap=cm.coolwarm)
         plt.gca().set_xticklabels([])
         plt.gca().set_yticklabels([])

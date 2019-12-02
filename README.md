@@ -19,6 +19,7 @@ $ cmake ..
 ```bash
 $ make
 $ cd ..
+$ python example.py
 ```
 
 ## License
