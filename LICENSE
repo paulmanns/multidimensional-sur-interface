@@ -1,0 +1,54 @@
+=================================================================================================
+MIT License
+
+Copyright (c) 2019 Daniel Hauer and Paul Manns
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+=================================================================================================
+Parts of the code are a port of the python module hilbertcurve by Gabriel Altay (c) 2017
+(https://pypi.org/project/hilbertcurve/) to C(++). The license is pasted below.
+
+MIT License
+
+Copyright (c) 2017 Gabriel Altay
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+=================================================================================================
+Parts of the code by Gabriel Altay based on the C code provided in the article
+J. Skilling, Programming the Hilbert Curve. 2014 with the license
+
+//+++++++++++++++++++++++++++ PUBLIC-DOMAIN SOFTWARE ++++++++++++++++++++++++++
+// Functions: TransposetoAxes  AxestoTranspose
+// Purpose:   Transform in-place between Hilbert transpose and geometrical axes
+// Example:   b=5 bits for each of n=3 coordinates.
+//            15-bit Hilbert integer = A B C D E F G H I J K L M N O is stored
+//            as its Transpose
+//                   X[0] = A D G J M                X[2]|
+//                   X[1] = B E H K N    <------->       | /X[1]
+//                   X[2] = C F I L O               axes |/
+//                          high  low                    0------ X[0]
+//            Axes are stored conveniently as b-bit integers.
+// Author:    John Skilling  20 Apr 2001 to 11 Oct 2003
