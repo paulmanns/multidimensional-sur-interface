@@ -19,7 +19,7 @@ assert arr.shape[0]**-1 == arr.shape[1]**-1
 img_width = arr.shape[0]**-1
 
 print("Size reduced for computers with less memory and CPU power.")
-K = 16
+K = 8 # increase to K = 16,32,64,... if code too slow on your computer
 gray = 1. - np.flipud(np.fliplr(np.rot90(arr[::K, ::K] / 255.)))
 
 # =============
@@ -123,7 +123,6 @@ if PLOT_CONTROL_CONV:
         plot(lo_omega_sur[i], title=r'$v(\omega^{(%d)})$' % (i + 1), vmin=0.0, vmax=1.0, cmap=cm.binary)
         plt.gca().set_xticklabels([])
         plt.gca().set_yticklabels([])
-        plt.show()
         plt.savefig('./out/ctrl_%d_%d_sur.png' % (hc_max_iter, 1 + i),
                     dpi=300, bbox_inches="tight", pad_inches=0)
 
